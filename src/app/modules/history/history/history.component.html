@@ -1,0 +1,58 @@
+<div class="card border-0 rounded-0">
+  <div class="card-header theme-color rounded-0 border-0 p-2">
+    History
+  </div>
+
+  <div class="card-body p-0">
+
+    <dx-data-grid 
+      #datagrid 
+      id="gridContainer" 
+      [dataSource]="histories" 
+      [columnAutoWidth]="true"
+      [columnHidingEnabled]="true"
+      [showColumnLines]="false"
+      [showRowLines]="true"
+      [showBorders]="false"
+      height="100%"  
+    >
+      <!-- <dxo-search-panel [visible]="true" placeholder="Search..."></dxo-search-panel> -->
+      <dxo-load-panel [enabled]="true"></dxo-load-panel>
+      <!-- <dxo-selection selectAllMode="page" showCheckBoxesMode="always" mode="multiple"></dxo-selection> -->
+      <dxo-sorting mode="multiple"></dxo-sorting>
+      <dxo-paging [pageSize]="10"></dxo-paging>
+      <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[10, 15, 20, 50]" [showInfo]="true"></dxo-pager>
+
+      <dxi-column dataField="time" caption="Time" dataType="datetime" format="MM/dd/yyyy HH:mm:ss" [allowSorting]="false"></dxi-column>
+      <dxi-column dataField="rate" [allowSorting]="true">  </dxi-column>
+      <dxi-column dataField="account" [allowSorting]="false" ></dxi-column>
+      <dxi-column dataField="Memo" [allowSorting]="false" cellTemplate="actionTemplate"></dxi-column>
+
+      <div *dxTemplate="let data of 'actionTemplate'">
+        <dx-button stylingMode="text" text="Detail"></dx-button>
+      </div>
+
+    </dx-data-grid>
+
+
+    <!-- <ul class="mt-3 list-group list-group-flush border-top">
+      <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+        <span>Title</span>
+        <span>Account</span>
+        <span>Status</span>
+        <span>Actions</span>
+      </li>
+      <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+        *ngFor="let his of histories">
+        <span>{{his.title}}</span>
+        <span>{{his.account}}</span>
+        <span>{{his.status}}</span>
+        <span>Actions</span>
+        <span>{{his.title}}</span>
+        <dx-button stylingMode="text">{{his.title}}</dx-button>
+        <dx-button stylingMode="text">{{his.account}}</dx-button>
+        <dx-button stylingMode="text" [text]="his.status"></dx-button>
+      </li>
+    </ul> -->
+  </div>
+</div>

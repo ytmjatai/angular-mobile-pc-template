@@ -1,0 +1,18 @@
+:host {
+  display: block;
+  height: 100%;
+  width: 100%;
+
+  dx-list {
+    ::ng-deep {
+      .dx-list-item-content {
+        padding: 10px 0;
+        .dx-list-item-icon-container {
+          width: 30px !important;
+          height: auto !important;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

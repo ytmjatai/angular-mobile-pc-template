@@ -1,0 +1,42 @@
+<div class="card border-0 rounded-0">
+  <div class="card-header theme-color rounded-0 border-0 p-2">
+    Deal
+  </div>
+  <div class="card-body p-0">
+
+    <dx-data-grid 
+      #datagrid 
+      id="gridContainer" 
+      [dataSource]="deals" 
+      [columnAutoWidth]="true"
+      [columnHidingEnabled]="true"
+      [showColumnLines]="false"
+      [showBorders]="false"
+      height="100%"  
+    >
+      <!-- <dxo-search-panel [visible]="true" placeholder="Search..."></dxo-search-panel> -->
+      <dxo-load-panel [enabled]="true"></dxo-load-panel>
+      <!-- <dxo-selection selectAllMode="page" showCheckBoxesMode="always" mode="multiple"></dxo-selection> -->
+      <dxo-sorting mode="multiple"></dxo-sorting>
+      <dxo-paging [pageSize]="10"></dxo-paging>
+      <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[10, 15, 20, 50]" [showInfo]="true"></dxo-pager>
+
+      <dxi-column dataField="title" caption="Title" [allowSorting]="false"></dxi-column>
+      <!-- <dxi-column dataField="rate" [allowSorting]="true">  </dxi-column> -->
+      <dxi-column dataField="status" [allowSorting]="false" ></dxi-column>
+      <dxi-column dataField="action" [allowSorting]="false" cellTemplate="actionTemplate"></dxi-column>
+
+      <div *dxTemplate="let data of 'actionTemplate'">
+        <dx-menu
+            [dataSource]="actions"
+            [showFirstSubmenuMode]="true"
+            orientation="horizontal"
+            submenuDirection="auto"
+            [hideSubmenuOnMouseLeave]="true"
+        >
+        </dx-menu>
+      </div>
+    </dx-data-grid>
+  </div>
+</div>
+

@@ -1,0 +1,21 @@
+
+<app-header class="p-2 border-bottom"></app-header>
+<dx-drawer 
+  template="template" 
+  [(shading)]="vm.config.shading"
+  [(openedStateMode)]="vm.config.openedStateMode"
+  [(opened)]="vm.config.opened"
+  [(minSize)]="vm.config.minSize"
+  [closeOnOutsideClick]="vm.config.closeOnOutsideClick"
+  (onInitialized)="loadView($event)"
+  revealMode="expand"
+  height="100%" 
+  maxSize="200"
+>
+  <div *dxTemplate="let data of 'template'" class="h-100" [class.border-right]="!vm.config.isMobile">
+    <app-side></app-side>
+  </div> 
+  <div class="h-100 p-2">
+    <router-outlet></router-outlet>
+  </div>
+</dx-drawer>

@@ -1,0 +1,38 @@
+<!-- <ul>
+  <li *ngFor="let rate of rates">
+    {{rate}}
+  </li>
+</ul> -->
+
+<div class="container-fluid" *ngIf="!globalSvc.isMobile; else mobile">
+  <div class="row">
+    <div class="col-md-6 col-sm-12 mb-3">
+      <ul class="list-group">
+        <li class="list-group-item theme-color text-white">RMB to other</li>
+        <li class="list-group-item list-group-item-action" *ngFor="let rate of rates[0]">{{rate}}</li>
+      </ul>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <ul class="list-group">
+        <li class="list-group-item theme-color text-white">Other to RMB</li>
+        <li class="list-group-item list-group-item-action" *ngFor="let rate of rates[1]">{{rate}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<ng-template #mobile>
+  <dx-accordion [collapsible]="true" [multiple]="true" [animationDuration]="300">
+
+    <dxi-item title="RMB to other" [expanded]="true">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item list-group-item-action" *ngFor="let rate of rates[0]">{{rate}}</li>
+      </ul>
+    </dxi-item>
+
+    <dxi-item title="Other to RMB" [expanded]="true">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item list-group-item-action" *ngFor="let rate of rates[1]">{{rate}}</li>
+      </ul>
+    </dxi-item>
+  </dx-accordion>
+</ng-template>

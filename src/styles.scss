@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+@import "./assets/styles/dx/dx.common.css";
+@import "./assets/styles/dx/dx.generic.dx-swatch-jatai.css";
+
+@import "./assets/styles/base";
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+

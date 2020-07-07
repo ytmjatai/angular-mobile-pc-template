@@ -1,0 +1,14 @@
+:host {
+  ::ng-deep {
+    .dx-dropdownmenu {
+      border: 0 !important;
+    }
+  }
+
+  .logo {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+    font-weight: bolder;
+  }
+}
